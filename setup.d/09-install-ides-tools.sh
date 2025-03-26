@@ -8,7 +8,7 @@ apt -y install geany geany-plugin-automark geany-plugin-lineoperations geany-plu
 apt -y install emacs \
 	gedit joe kate kdevelop nano vim vim-gtk3 \
 	ddd valgrind ruby python3-pip konsole \
-	cmake python3-matplotlib
+	cmake python3-matplotlib firefox
 
 # Install atom's latest stable version
 $wget -O $cache/atom-1.60.0.deb https://github.com/atom/atom/releases/download/v1.60.0/atom-amd64.deb

@@ -6,6 +6,7 @@ set -e
 #Remove firefox snap
 snap remove firefox
 
+#Add firefox repository
 install -d -m 0755 /etc/apt/keyrings
 wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
 
@@ -18,7 +19,7 @@ Pin-Priority: 1000
 
 Package: firefox*
 Pin: release o=Ubuntu
-Pin-Priority: -1' | sudo tee /etc/apt/preferences.d/mozilla
+Pin-Priority: -1' | tee /etc/apt/preferences.d/mozilla
 
-sudo apt update && sudo apt remove firefox
-sudo apt install firefox
+apt remove firefox
+
