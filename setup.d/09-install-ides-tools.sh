@@ -8,7 +8,7 @@ apt -y install geany geany-plugin-automark geany-plugin-lineoperations geany-plu
 apt -y install emacs \
 	gedit joe kate kdevelop nano vim vim-gtk3 \
 	ddd valgrind ruby python3-pip konsole \
-	cmake python3-matplotlib firefox
+	cmake python3-matplotlib
 
 # Install atom's latest stable version
 $wget -O $cache/atom-1.60.0.deb https://github.com/atom/atom/releases/download/v1.60.0/atom-amd64.deb
@@ -17,9 +17,15 @@ apt -f install
 # Fix #11: Atom crashes when trying to open folders
 sed 's/^Exec=.*$/& --no-sandbox/' -i /usr/share/applications/atom.desktop
 
-snap install --classic code
-snap install --classic sublime-text
-snap install --classic nvim
+$wget -O $cache/nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >> ~/.bashrc
+
+$wget -O $cache/code_stable_amd64.deb https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+dpkg -i $cache/code_stable_amd64.deb
+
+$wget -O $cache/sublime-text_stable.amd64 https://www.sublimetext.com/download_thanks?target=x64-deb#direct-downloads
+dpkg -i $cache/sublime-text_stable.amd64
 
 # Install Eclipse
 $wget "https://mirror.dkm.cz/eclipse/technology/epp/downloads/release/2025-03/R/eclipse-cpp-2025-03-R-linux-gtk-x86_64.tar.gz"
