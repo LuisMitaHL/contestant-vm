@@ -6,7 +6,7 @@ set -e
 systemctl stop snapd
 systemctl disable snapd
 
-apt purge snapd -y
+apt remove --purge snapd -y
 rm -rf ~/snap
 rm -rf /snap
 rm -rf /var/snap
