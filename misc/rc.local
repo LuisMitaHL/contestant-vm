@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source /opt/ioi/config.sh
+/opt/ioi/sbin/startatd.sh &
+
+# vim: ft=sh ts=4 noet
