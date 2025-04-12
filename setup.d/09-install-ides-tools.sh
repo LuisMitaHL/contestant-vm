@@ -23,16 +23,16 @@ $wget -O "$cache/code_stable_amd64.deb" "https://code.visualstudio.com/sha/downl
 dpkg -i "$cache/code_stable_amd64.deb"
 
 $wget -O "$cache/atom.deb" "https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb"
-dpkg -i "$cache/atom..deb"
+dpkg -i "$cache/atom.deb"
 apt -f install
 # Fix #11: Atom crashes when trying to open folders
 sed 's/^Exec=.*$/& --no-sandbox/' -i /usr/share/applications/atom.desktop
 
 $wget -O "$cache/nvim-linux-x86_64.tar.gz" "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz"
 tar xzf "$cache/nvim-linux-x86_64.tar.gz" -C /opt
-$echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >> ~/.bashrc
+echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >> /home/ioi/.bashrc
 
-$wget -O "$cache/sublime-text" "https://download.sublimetext.com/sublime-text_build-${SUBLIME_VERSION}_amd64.deb"
+$wget -O "$cache/sublime-text.deb" "https://download.sublimetext.com/sublime-text_build-${SUBLIME_VERSION}_amd64.deb"
 dpkg -i "$cache/sublime-text.deb"
 
 # Install Eclipse
