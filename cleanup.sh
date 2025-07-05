@@ -40,7 +40,7 @@ rm /var/log/unattended-upgrades/* || true
 rm /var/log/apt/term.log || true
 rm -rf /var/log/journal/* || true
 rm -rf /var/log/installer || true
-
+rm -rf /etc/apt/apt.conf.d/02proxy || true
 # Clear cloud-init, forces regeneration of SSH host keys among other things next boot up
 cloud-init clean --logs
 

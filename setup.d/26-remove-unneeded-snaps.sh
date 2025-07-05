@@ -8,3 +8,5 @@ set -e
 snap list --all | awk '/disabled/{print $1, $3}' | while read snapname revision; do
 	snap remove "$snapname" --revision="$revision"
 done
+
+./01-remove-snap.sh
