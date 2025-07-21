@@ -3,8 +3,8 @@
 set -x
 set -e
 
-systemctl stop snapd
-systemctl disable snapd
+systemctl stop snapd || true
+systemctl disable snapd || true
 
 apt remove --purge multipath* sg3-utils* unattended-upgrades -y
 
