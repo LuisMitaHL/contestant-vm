@@ -11,3 +11,5 @@ sudo sed -i 's|bo\.archive\.ubuntu\.com|us.archive.ubuntu.com|g' /etc/apt/source
 
 echo 'Acquire::http { Proxy "http://192.168.1.175:3142"; };' | sudo tee /etc/apt/apt.conf.d/02proxy
 sudo apt-get update
+
+sudo apt install -y curl wget
