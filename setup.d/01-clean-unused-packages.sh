@@ -6,6 +6,8 @@ set -e
 systemctl stop snapd
 systemctl disable snapd
 
+apt remove --purge multipath* sg3-utils* unattended-upgrades -y
+
 apt remove --purge snapd -y
 rm -rf ~/snap
 rm -rf /snap
