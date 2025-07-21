@@ -3,20 +3,18 @@
 set -x
 set -e
 
-#Add firefox repository
-install -d -m 0755 /etc/apt/keyrings
-wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
-
-echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:mozillateam/ppa
+sudo apt update -y
 
 echo '
 Package: *
-Pin: origin packages.mozilla.org
+Pin: origin ppa.launchpadcontent.net
 Pin-Priority: 1000
 
 Package: firefox*
 Pin: release o=Ubuntu
 Pin-Priority: -1' | tee /etc/apt/preferences.d/mozilla
 
-apt remove firefox
+sudo apt install firefox -y
 
