@@ -11,3 +11,6 @@ EOF
 
 netplan generate
 netplan apply
+
+systemctl disable systemd-networkd-wait-online.service
+systemctl enable NetworkManager-wait-online.service
