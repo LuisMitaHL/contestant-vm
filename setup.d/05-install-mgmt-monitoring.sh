@@ -9,6 +9,8 @@
 set -x
 set -e
 
+exit 0
+
 apt -y install net-tools openssh-server ansible xvfb oathtool imagemagick zabbix-agent2
 
 sed -i 's|/etc/zabbix/zabbix_agent2.conf|/etc/zabbix/zabbix_agent2_ioi.conf|' /usr/lib/systemd/system/zabbix-agent2.service
